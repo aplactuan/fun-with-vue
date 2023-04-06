@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Tutorial</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-full grid place-items-center">
+<div id="app">
+    <section v-show="inProgressAssignments.length">
+        <h2 class="font-bold">In Progress</h2>
+        <ul>
+            <li
+                    v-for="assignment in inProgressAssignments"
+                    :key="assignment.id"
+            >
+                <label>
+                    {{ assignment.name}}
+                    <input type="checkbox" v-model="assignment.completed">
+                </label>
+            </li>
+        </ul>
+    </section>
+    <section class="mt-4" v-show="completedAssignments.length">
+        <h2 class="font-bold">Completed</h2>
+        <ul>
+            <li
+                    v-for="assignment in completedAssignments"
+                    :key="assignment.id"
+            >
+                <label>
+                    {{ assignment.name}}
+                    <input type="checkbox" v-model="assignment.completed">
+                </label>
+            </li>
+        </ul>
+    </section>
+
+</div>
+
+<script>
+    const app = {
+        data() {
+            return {
+                assignments: [
+                    {name: 'Go to bank', completed: false, id: 1},
+                    {name: 'Inquire for loan', completed: false, id: 2},
+                    {name: 'Complete the requirements', completed: false, id: 3},
+                ]
+            }
+        },
+        computed: {
+            inProgressAssignments() {
+                return this.assignments.filter(assignment => !assignment.completed)
+            },
+            completedAssignments() {
+                return this.assignments.filter(assignment => assignment.completed)
+            }
+        }
+    }
+
+    Vue.createApp(app).mount("#app")
+</script>
+</body>
+</html>
