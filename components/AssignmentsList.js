@@ -1,28 +1,22 @@
 import Assignment from "./Assignment.js";
+import AssignmentTags from "./AssignmentTags.js";
 
 export default {
     components: {
-      Assignment
+      Assignment,
+      AssignmentTags
     },
     template: `
         <section v-show="assignments.length" class="border border-gray-400 rounded-lg">
             <h2 class="font-bold p-2 border-b border-gray-400">
                 {{ title }} ({{ assignments.length }})
             </h2>
-            <div class="flex gap-1 px-2 py-1">
-                <button 
-                    v-for="tag in tags"
-                    @click="selectedTag = tag"
-                    class="border rounded px-2 py-1 text-xs"
-                    :class='{
-                        "border-blue-200 text-blue-200": selectedTag == tag,
-                        "border-gray-300":  selectedTag != tag
-                    }'
-                >
-                    {{ tag }}
-                </button>
-            </div>
             
+            <assignment-tags 
+                :initial-tags="assignments.map(a => a.tag)"
+                v-model:selectedTag="selectedTag"
+            >    
+            </assignment-tags>
             <ul class="divide-y-2 divide-gray-400">
                 <assignment
                     v-for="assignment in filteredAssignments"
