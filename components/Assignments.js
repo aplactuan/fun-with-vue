@@ -11,13 +11,16 @@ export default {
      `,
     data() {
         return {
-            assignments: [
-                {name: 'Go to bank', completed: false, id: 1, tag: 'science'},
-                {name: 'Inquire for loan', completed: false, id: 2, tag: 'science'},
-                {name: 'Complete the requirements', completed: false, id: 3, tag: 'math'},
-            ]
+            assignments: []
         }
     },
+
+   created() {
+     fetch('http://localhost:3001/assignments')
+         .then(response => response.json())
+         .then(assignments => this.assignments = assignments)
+   },
+
     computed: {
         filters() {
           return {

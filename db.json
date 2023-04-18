@@ -1,0 +1,24 @@
+{
+  "assignments": [
+    {
+      "name": "Read Philosophy Books",
+      "completed": false,
+      "id": 1,
+      "tag": "stoicism"
+    },
+
+    {
+      "name": "Watch Python Udemy Course",
+      "completed": false,
+      "id": 1,
+      "tag": "Programming"
+    },
+
+    {
+      "name": "Watch Figma Course",
+      "completed": false,
+      "id": 1,
+      "tag": "Design"
+    }
+  ]
+}
