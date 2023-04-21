@@ -19,6 +19,13 @@
       "completed": false,
       "id": 1,
       "tag": "Design"
+    },
+
+    {
+      "name": "Watch Laracasts Course",
+      "completed": true,
+      "id": 1,
+      "tag": "Design"
     }
   ]
 }

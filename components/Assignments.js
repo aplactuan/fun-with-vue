@@ -3,10 +3,11 @@ import AddAssignment from "./AddAssignment.js";
 export default {
     components: {AssignmentsList, AddAssignment},
     template: `
-        <div class="space-y-3">
-            <assignments-list :assignments="filters.inProgress" title="In Progress"></assignments-list>
+        <div class="flex gap-6">
+            <assignments-list :assignments="filters.inProgress" title="In Progress">
+                <add-assignment @addAssignment="add"></add-assignment>
+            </assignments-list>
             <assignments-list :assignments="filters.completed" title="Completed"></assignments-list>
-            <add-assignment @addAssignment="add"></add-assignment>
         </div>
      `,
     data() {

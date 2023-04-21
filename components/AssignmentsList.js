@@ -7,7 +7,7 @@ export default {
       AssignmentTags
     },
     template: `
-        <section v-show="assignments.length" class="border border-gray-400 rounded-lg">
+        <section v-show="assignments.length" class="border border-gray-400 rounded-lg w-64">
             <h2 class="font-bold p-2 border-b border-gray-400">
                 {{ title }} ({{ assignments.length }})
             </h2>
@@ -25,6 +25,7 @@ export default {
                 >
                 </assignment>
             </ul>
+            <slot></slot>
         </section>
     `,
     data() {
