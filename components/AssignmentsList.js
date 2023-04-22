@@ -25,7 +25,7 @@ export default {
                 >
                 </assignment>
             </ul>
-            <slot></slot>
+            <slot />
         </section>
     `,
     data() {
